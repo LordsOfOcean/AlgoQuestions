@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Program {
+  public static List<Integer> moveElementToEnd(
+    List<Integer> array, int toMove
+  ) {
+    // Create a new ArrayList to store the result
+    ArrayList<Integer> result = new ArrayList<>();
+    // Iterate through the array
+    for (Integer num : array) {
+      // If the current element is not equal to 'toMove', add it to the result
+      if (num != toMove) {
+        result.add(num);
+      }
+    }
+    // Iterate through the array again
+    for (Integer num : array) {
+      // If the current element is equal to 'toMove', add it to the result
+      if (num == toMove) {
+        result.add(num);
+      }
+    }
+    return result;
+  }
+}
