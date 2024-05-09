@@ -1,0 +1,20 @@
+import java.util.*;
+
+class Program {
+  public int[][] transposeMatrix(int[][] matrix) {
+    // Write your code here.
+    // Get the dimensions of the matrix
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        // Create a new array of the same size as the matrix
+        int[][] newArray = new int[cols][rows];
+
+      for(int i=0;i<rows;i++){
+        for(int j=0;j<cols;j++){
+          newArray[j][i] = matrix[i][j];
+        }
+      }
+    return newArray;
+  }
+}
