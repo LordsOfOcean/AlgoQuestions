@@ -1,0 +1,39 @@
+import java.util.*;
+
+class Program {
+  public static int[] smallestDifference(int[] arrayOne, int[] arrayTwo) {
+    Arrays.sort(arrayOne);
+    Arrays.sort(arrayTwo);
+
+    int smallestDiff = Integer.MAX_VALUE;
+    int[] closestPair = new int[2];
+
+    int pointerOne = 0;
+    int pointerTwo = 0;
+
+    while (pointerOne < arrayOne.length && pointerTwo < arrayTwo.length) {
+      int num1 = arrayOne[pointerOne];
+      int num2 = arrayTwo[pointerTwo];
+
+      int currentDiff = Math.abs(num1 - num2);
+
+      if (currentDiff < smallestDiff) {
+        smallestDiff = currentDiff;
+        closestPair[0] = num1;
+        closestPair[1] = num2;
+      }
+
+      if (num1 < num2) {
+        pointerOne++;
+      } else if (num2 < num1) {
+        pointerTwo++;
+      } else {
+        // If the numbers are equal, then their difference is 0,
+        // which is the smallest possible difference, so we can return immediately.
+        return closestPair;
+      }
+    }
+
+    return closestPair;
+  }
+}
